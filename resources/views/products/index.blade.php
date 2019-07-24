@@ -2,7 +2,8 @@
 
 @section('content')
   <div class="container">
-    <h1>Tutti i prodotti</h1>
+    <h1 class= "pull-left">Tutti i prodotti</h1>
+    <a class="pull-right btn btn-primary" href="{{ route('products.create' )}}">Inserisci nuovo prodotto</a>
     <table class="table">
       <thead>
         <th>ID</th>
