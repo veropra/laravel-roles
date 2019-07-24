@@ -29,21 +29,31 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        //
+        if (empty ($product)) {
+          abort(404);
+        }
+        return view('products.show', compact('product'));
     }
 
     public function edit(Product $product)
     {
-        //
+      if (empty ($product)) {
+        abort(404);
+      }
+      return view('products.edit', compact('product'));
     }
 
     public function update(Request $request, Product $product)
     {
-        //
+      $dati = $request->all();
+      $product->fill($dati);
+      $product->update();
+      return redirect()->route('products.index');
     }
 
     public function destroy(Product $product)
     {
-        //
+      $product->delete();
+      return redirect()->route('products.index');
     }
 }
