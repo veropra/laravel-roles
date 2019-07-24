@@ -15,6 +15,14 @@
                     @endif
 
                     You are logged in!
+                    <br>
+                    @if (Auth::user()->hasRole('admin'))
+                      Sei un amministratore!
+                    @elseif (Auth::user()->hasRole('customer'))
+                      Sei un cliente!
+                    @else
+                      Non sei un amministratore nè un cliente!
+                    @endif
                 </div>
             </div>
         </div>
