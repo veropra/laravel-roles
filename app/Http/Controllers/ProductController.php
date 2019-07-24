@@ -20,7 +20,11 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $dati = $request->all();
+        $new_product = new Product();
+        $new_product->fill($dati);
+        $new_product->save();
+        return redirect()->route('products.index');
     }
 
     public function show(Product $product)
